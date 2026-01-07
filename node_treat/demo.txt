@@ -1,1 +1,2 @@
-This is demo text
+This is demo text.
+This is new line content.
