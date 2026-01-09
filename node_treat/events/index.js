@@ -9,10 +9,8 @@ const emitter = new EventEmitter()
 
 // emitter.emit("greet", "Ashiqur Rahman")
 
-
 emitter.on("sumOfNumbers", (a, b) => {
     console.log(a + b)
 })
-
 
 emitter.emit("sumOfNumbers", 10, 5)
