@@ -14,7 +14,7 @@ const server = http.createServer((req, res) => {
 
     if(req.url === "/contact"){
         res.setHeader("Content-Type", "text/html")
-        res.write("<h1>This is our Contact page!</h1>")
+        res.write("<h1>This is our Contact page. You can contact now.</h1>")
         res.end()
     }
 })
