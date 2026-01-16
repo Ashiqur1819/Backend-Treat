@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Ashiqur1819/Backend-Treat/issues"
   },
-  "homepage": "https://github.com/Ashiqur1819/Backend-Treat#readme"
+  "homepage": "https://github.com/Ashiqur1819/Backend-Treat#readme",
+  "dependencies": {
+    "chalk": "^5.6.2"
+  }
 }
