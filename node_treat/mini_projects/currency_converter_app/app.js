@@ -30,14 +30,14 @@ const currencyConverter = () => {
               const convertCurrency = (amount * rate).toFixed(2);
               console.log(
                 chalk.green(
-                  `${amount} USD is aproximately ${convertCurrency} ${currency}`
-                )
+                  `${amount} USD is aproximately ${convertCurrency} ${currency}`,
+                ),
               );
             } else {
               console.log("Invalid currency code!");
             }
             rl.close();
-          }
+          },
         );
       });
     });
