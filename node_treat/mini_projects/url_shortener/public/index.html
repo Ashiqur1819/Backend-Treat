@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>URL Shortener</h2>
+
+      <form id="shortener-form">
+        <div class="form-input">
+          <label for="url">Enter URL:</label><br />
+          <input type="url" name="url" id="url" />
+        </div>
+        <div class="form-input">
+          <label for="short-code">Enter Short Code:</label><br />
+          <input type="text" name="short-code" id="short-code" />
+        </div>
+        <button type="submit">Shorten</button>
+      </form>
+
+      <h3>Shortened URLs</h3>
+      <ul id="shortened-urls"></ul>
+    </div>
+
+    <script>
+      const fetchSortenedUrl = async () => {
+        const response = await fetch("/links");
+        const links = await response.json();
+
+        const list = document.getElementById("shortened-urls");
+        list.innerHTML = "";
+
+        for (const [shortCode, url] of Object.entries(links)) {
+          const li = document.createElement("li");
+          li.innerHTML = `<a href="/${shortCode}" target="_blank">${window.location.origin}/${shortCode}</a> - ${url}`;
+          list.appendChild(li);
+        }
+      };
+
+      document
+        .getElementById("shortener-form")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+
+          const formData = new FormData(event.target);
+
+          const url = formData.get("url");
+          const shortCode = formData.get("short-code");
+
+          try {
+            const response = await fetch("/shorten", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ url, shortCode }),
+            });
+
+            if (response.ok) {
+              fetchSortenedUrl();
+              alert("Form submission successfull.");
+              event.target.reset();
+            } else {
+              const errorMessage = await response.text();
+              alert(errorMessage);
+            }
+          } catch (error) {
+            console.log(error);
+          }
+        });
+
+      fetchSortenedUrl();
+    </script>
+  </body>
+</html>
