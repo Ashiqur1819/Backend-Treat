@@ -21,4 +21,4 @@ import {z, ZodError} from "zod"
 
 
 const portSchema = z.coerce.number().min(3000).max(8000).int().default(3000)
-export const PORT = portSchema.safeParse(process.env.PORT)
+export const PORT = portSchema.parse(process.env.PORT)
