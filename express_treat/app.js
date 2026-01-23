@@ -15,6 +15,22 @@ app.get("/", (req, res) => {
   res.sendFile(homePagePath)
 });
 
+
+app.get("/products", (req, res) => {
+  console.log(req.query)
+  res.send(`<h2>Phone name: ${req.query.name} <br/> Page: ${req.query.page} <br/> Limit: ${req.query.limit}</h2>`)
+})
+
+
+
+
+
+
+
+
+
+
+
 app.listen(PORT, () => {
   console.log(`Server is running successfully on port: ${PORT}`);
 });
