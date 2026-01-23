@@ -1,7 +1,10 @@
-import express from "express";
+import express, { urlencoded } from "express";
 import  {PORT}  from "./env.js";
 const app = express();
 import path from "path"
+
+
+app.use(urlencoded({extended: true}))
 
 app.get("/", (req, res) => {
   // console.log("Dirname: ", import.meta.dirname)
@@ -16,11 +19,23 @@ app.get("/", (req, res) => {
 });
 
 
-app.get("/products", (req, res) => {
+// app.get("/products", (req, res) => {
+//   console.log(req.query)
+//   res.send(`<h2>Phone name: ${req.query.name} <br/> Page: ${req.query.page} <br/> Limit: ${req.query.limit}</h2>`)
+// })
+
+
+app.get("/contact", (req, res) => {
   console.log(req.query)
-  res.send(`<h2>Phone name: ${req.query.name} <br/> Page: ${req.query.page} <br/> Limit: ${req.query.limit}</h2>`)
+  res.redirect("/")
+  // res.send("OK")
 })
 
+app.post("/contact", (req, res) => {
+  console.log(req.body)
+  res.redirect("/")
+  // res.send("OK")
+})
 
 
 
