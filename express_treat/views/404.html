@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>404 - Page Not Found</title>
+
+    <!-- Internal CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f4f6f8, #e9ecef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .error-container {
+            text-align: center;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            max-width: 420px;
+            width: 100%;
+        }
+
+        .error-code {
+            font-size: 96px;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .error-title {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .error-text {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .home-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .home-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <div class="error-title">Page Not Found</div>
+        <p class="error-text">
+            Sorry, the page you are looking for doesn’t exist or has been moved.
+        </p>
+        <a href="/" class="home-btn">Go Back Home</a>
+    </div>
+
+</body>
+</html>

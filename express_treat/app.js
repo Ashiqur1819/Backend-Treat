@@ -37,6 +37,11 @@ app.post("/contact", (req, res) => {
   // res.send("OK")
 })
 
+app.use((req, res) => {
+  // return res.status(404).send("<h2>Page not found!</h2>")
+  return res.status(404).sendFile(path.join(import.meta.dirname, "views", "404.html"))
+})
+
 
 
 
